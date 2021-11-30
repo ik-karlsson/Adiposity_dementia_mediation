@@ -1,0 +1,176 @@
+symbol	chr	start	end	BMI_GeneMap	AD_GeneMap
+ACP2	11	47260853	47270457	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+AGBL2	11	47681143	47736941	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+AP000974.1	11	85563600	85565986	Chromatin interaction	Chromatin interaction
+AP002348.1	11	120382511	120385732	Chromatin interaction	Chromatin interaction
+APOBEC2	6	41021043	41032250	Position, eQTL, Chromatin interaction	Position, Chromatin interaction
+APOC1	19	45417504	45422606	Position, eQTL	Position, eQTL, Chromatin interaction
+APOC2	19	45449243	45452822	Chromatin interaction	Position, eQTL, Chromatin interaction
+APOC4	19	45445495	45452820	Chromatin interaction	Position, eQTL, Chromatin interaction
+APOC4-APOC2	19	45445495	45452822	Chromatin interaction	Position, Chromatin interaction
+APOE	19	45409011	45412650	Position, eQTL	Position, eQTL, Chromatin interaction
+ARFGAP2	11	47185848	47198676	Position, eQTL, Chromatin interaction	eQTL
+ARHGAP1	11	46698630	46722165	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+ATG13	11	46638826	46696368	Position, eQTL	eQTL
+ATXN3	14	92524896	92572965	Position, eQTL, Chromatin interaction	Chromatin interaction
+BCAM	19	45312328	45324673	eQTL	Position, eQTL, Chromatin interaction
+BLID	11	121986062	121986923	Chromatin interaction	Chromatin interaction
+BNIP3L	8	26240414	26363152	Chromatin interaction	Chromatin interaction
+C11orf49	11	46958240	47185936	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+C11orf73	11	86013253	86056969	Chromatin interaction	eQTL, Chromatin interaction
+C1QTNF4	11	47611216	47616211	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+C1orf116	1	207191866	207206101	Chromatin interaction	Chromatin interaction
+C1orf74	1	209955661	209957904	eQTL, Chromatin interaction	Chromatin interaction
+C4BPA	1	207277607	207318317	Chromatin interaction	Chromatin interaction
+C4BPB	1	207262187	207273338	Chromatin interaction	Chromatin interaction
+CADM4	19	44126520	44143991	Chromatin interaction	Chromatin interaction
+CAMK1G	1	209757062	209787283	Chromatin interaction	Chromatin interaction
+CCDC25	8	27590835	27630170	eQTL	Chromatin interaction
+CCDC81	11	86085778	86134151	Chromatin interaction	Chromatin interaction
+CCDC83	11	85566144	85631064	Chromatin interaction	eQTL, Chromatin interaction
+CCDC89	11	85394893	85397320	eQTL, Chromatin interaction	eQTL, Chromatin interaction
+CD2AP	6	47445525	47594999	Chromatin interaction	Position, eQTL, Chromatin interaction
+CD34	1	208057594	208084747	Chromatin interaction	Chromatin interaction
+CD3EAP	19	45909467	45914024	Chromatin interaction	Chromatin interaction
+CD46	1	207925402	207968858	Chromatin interaction	Chromatin interaction
+CD55	1	207494853	207534311	Chromatin interaction	eQTL, Chromatin interaction
+CEACAM21	19	42055886	42093197	Chromatin interaction	Chromatin interaction
+CEACAM3	19	42300369	42315591	Chromatin interaction	Chromatin interaction
+CELF1	11	47487496	47587121	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+CENPQ	6	49431091	49460820	Chromatin interaction	Chromatin interaction
+CHRNA2	8	27317279	27337400	Position, eQTL	Chromatin interaction
+CKAP5	11	46764598	46867847	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+CLPTM1	19	45457842	45496599	Chromatin interaction	Position, eQTL, Chromatin interaction
+CLU	8	27454434	27472548	Chromatin interaction	Position, eQTL, Chromatin interaction
+CPSF2	14	92588281	92630755	eQTL, Chromatin interaction	Chromatin interaction
+CR1	1	207669492	207813992	Chromatin interaction	Position, eQTL, Chromatin interaction
+CR1L	1	207818458	207911761	Chromatin interaction	Position, Chromatin interaction
+CR2	1	207627575	207663240	Chromatin interaction	Chromatin interaction
+CREBZF	11	85370752	85393951	Position, Chromatin interaction	Chromatin interaction
+CRISP2	6	49660073	49681274	Chromatin interaction	Chromatin interaction
+CRISP3	6	49695097	49712150	Chromatin interaction	Chromatin interaction
+CTB-129P6.11	19	45453301	45457264	Chromatin interaction	Position, eQTL, Chromatin interaction
+CXCL17	19	42932440	42947200	eQTL, Chromatin interaction	Chromatin interaction
+DAAM2	6	39760142	39872648	eQTL, Chromatin interaction	Chromatin interaction
+DACT3	19	47150869	47164395	Chromatin interaction	Chromatin interaction
+DDB2	11	47236493	47260767	Position, eQTL	Position, eQTL
+DEFB133	6	49913814	49917157	Chromatin interaction	Chromatin interaction
+DIEXF	1	210001352	210030910	eQTL, Chromatin interaction	Chromatin interaction
+DLG2	11	83166055	85338966	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+DMPK	19	46272975	46285810	Position, eQTL, Chromatin interaction	eQTL
+DMRTC2	19	42348806	42356401	Chromatin interaction	Chromatin interaction
+EED	11	85955586	85989855	Chromatin interaction	Chromatin interaction
+EIF2D	1	206744620	206785904	Chromatin interaction	Chromatin interaction
+EML2	19	46110252	46148887	Position, eQTL	Position
+EPHX2	8	27348296	27403081	eQTL	eQTL, Chromatin interaction
+ERCC1	19	45910591	45982086	Chromatin interaction	Position, eQTL
+F2	11	46740730	46761056	Position, eQTL, Chromatin interaction	Chromatin interaction
+FAM180B	11	47608198	47610746	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+FNBP4	11	47738072	47788995	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+FOSB	19	45971253	45978437	Chromatin interaction	eQTL
+FRS3	6	41737914	41754280	Position, eQTL, Chromatin interaction	Chromatin interaction
+FZD4	11	86656721	86666433	Chromatin interaction	Chromatin interaction
+G0S2	1	209848765	209849733	Chromatin interaction	Chromatin interaction
+GIF	11	59596741	59612974	Chromatin interaction	Chromatin interaction
+GLP1R	6	39016574	39055519	Chromatin interaction	Chromatin interaction
+GLYAT	11	58407899	58499447	Chromatin interaction	Chromatin interaction
+GLYATL3	6	49467671	49494760	Chromatin interaction	Chromatin interaction
+GPR110	6	46965440	47010099	Chromatin interaction	Chromatin interaction
+GPR111	6	47624172	47665533	Chromatin interaction	eQTL
+GPR115	6	47653600	47689757	Chromatin interaction	eQTL, Chromatin interaction
+GPR116	6	46820249	46922680	eQTL, Chromatin interaction	Chromatin interaction
+GRIK4	11	120382468	120859613	Chromatin interaction	Chromatin interaction
+GRIN3B	19	1000418	1009731	eQTL	eQTL
+HSD11B1	1	209859510	209908295	Chromatin interaction	Chromatin interaction
+IRF6	1	209959036	209979465	eQTL, Chromatin interaction	Chromatin interaction
+KBTBD4	11	47593749	47600567	Position, Chromatin interaction	Position, Chromatin interaction
+KCNK16	6	39282474	39290744	Chromatin interaction	Chromatin interaction
+KCNK17	6	39266777	39282329	Chromatin interaction	Chromatin interaction
+KLC3	19	45836692	45854778	eQTL	Position, eQTL, Chromatin interaction
+LAMB3	1	209788215	209825811	Chromatin interaction	Chromatin interaction
+LGMN	14	93170152	93215047	Chromatin interaction	Chromatin interaction
+LIPE	19	42905659	42931578	Chromatin interaction	Chromatin interaction
+LRFN2	6	40359325	40555204	Position, eQTL, Chromatin interaction	Chromatin interaction
+LRP4	11	46878419	46940193	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+LYPD4	19	42341148	42348760	Chromatin interaction	Chromatin interaction
+MADD	11	47290712	47351582	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+MAPKAPK2	1	206858289	206907628	Chromatin interaction	Chromatin interaction
+MDK	11	46402306	46405375	Position, eQTL, Chromatin interaction	eQTL
+ME3	11	86152150	86383678	Chromatin interaction	Chromatin interaction
+MEP1A	6	46761127	46807515	Chromatin interaction	Chromatin interaction
+MOCS1	6	39867354	39902290	eQTL, Chromatin interaction	Chromatin interaction
+MPEG1	11	58975983	58980424	Chromatin interaction	Chromatin interaction
+MTCH2	11	47638867	47664175	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+MUT	6	49398073	49430904	eQTL, Chromatin interaction	Chromatin interaction
+MYBPC3	11	47352957	47374253	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+MYPOP	19	46393278	46405862	Chromatin interaction	eQTL
+NDUFB1	14	92582466	92588261	eQTL, Chromatin interaction	Chromatin interaction
+NDUFS3	11	47586888	47606114	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+NFASC	1	204797779	204991950	Chromatin interaction	Chromatin interaction
+NFYA	6	41040684	41067715	eQTL, Chromatin interaction	Position, Chromatin interaction
+NR1H3	11	47269851	47290396	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+NUP160	11	47799639	47870107	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+OARD1	6	41001366	41065526	Position, eQTL, Chromatin interaction	Position, Chromatin interaction
+OPN5	6	47749718	47800516	Chromatin interaction	Chromatin interaction
+OR4D10	11	59244846	59245869	Chromatin interaction	Chromatin interaction
+OR4D11	11	59271049	59271984	Chromatin interaction	Chromatin interaction
+OR4D6	11	59224411	59225464	Chromatin interaction	Chromatin interaction
+OR5A1	11	59210617	59211667	Chromatin interaction	Chromatin interaction
+OR5AN1	11	59131885	59132921	Chromatin interaction	Chromatin interaction
+PACSIN3	11	47199076	47207994	Position, eQTL	eQTL
+PATL1	11	59404189	59436453	Chromatin interaction	Chromatin interaction
+PBK	8	27667137	27695612	Chromatin interaction	Chromatin interaction
+PCF11	11	82868030	82898493	Chromatin interaction	Chromatin interaction
+PFKFB2	1	207222801	207254369	Chromatin interaction	Chromatin interaction
+PGC	6	41704449	41721847	Position, eQTL, Chromatin interaction	Chromatin interaction
+PGK2	6	49753366	49755053	Chromatin interaction	Chromatin interaction
+PICALM	11	85668727	85780924	eQTL	Position, eQTL, Chromatin interaction
+PLXNA2	1	208195587	208417665	Chromatin interaction	Chromatin interaction
+POLR2E	19	1086594	1095598	eQTL	eQTL
+PPP1R13L	19	45882892	45909607	Chromatin interaction	Chromatin interaction
+PRICKLE4	6	41748087	41757879	Position, eQTL, Chromatin interaction	Chromatin interaction
+PRSS23	11	86502101	86663952	Chromatin interaction	eQTL, Chromatin interaction
+PSMC3	11	47440320	47447993	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+PTCHD4	6	47845764	48036425	Chromatin interaction	Chromatin interaction
+PTK2B	8	27168999	27316903	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+PTPMT1	11	47586982	47595013	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+PTPRJ	11	48002113	48189670	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+PVR	19	45147098	45166850	Chromatin interaction	Position, eQTL, Chromatin interaction
+PVRL2	19	45349432	45392485	Position, eQTL	Position, eQTL, Chromatin interaction
+QPCTL	19	46195741	46207247	Position, eQTL, Chromatin interaction	eQTL
+RAB30	11	82684175	82782965	Chromatin interaction	Chromatin interaction
+RAPSN	11	47459308	47470730	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+RELB	19	45504688	45541452	eQTL	Position, eQTL
+RHAG	6	49572871	49604552	Chromatin interaction	Chromatin interaction
+RIN3	14	92980118	93155339	Chromatin interaction	eQTL, Chromatin interaction
+RTN2	19	45988547	46000319	Chromatin interaction	eQTL
+SAYSD1	6	39071840	39082965	Chromatin interaction	Chromatin interaction
+SC5D	11	121163162	121179403	Chromatin interaction	Chromatin interaction
+SERTAD4	1	210406144	210419976	eQTL, Chromatin interaction	Chromatin interaction
+SLC39A13	11	47428683	47438047	Position, eQTL, Chromatin interaction	Position, eQTL, Chromatin interaction
+SMG9	19	44235301	44259142	Chromatin interaction	Chromatin interaction
+SNRPD2	19	46190712	46195827	Position, eQTL, Chromatin interaction	eQTL
+SORL1	11	121322912	121504402	Chromatin interaction	Position, eQTL, Chromatin interaction
+SPI1	11	47376411	47400127	Position, eQTL, Chromatin interaction	Position, Chromatin interaction
+SYMPK	19	46318668	46366548	Position, eQTL, Chromatin interaction	eQTL
+SYTL2	11	85405267	85522184	eQTL, Chromatin interaction	eQTL, Chromatin interaction
+TCN1	11	59620273	59634048	Chromatin interaction	Chromatin interaction
+TDRD6	6	46655612	46672056	eQTL, Chromatin interaction	Chromatin interaction
+TMEM126A	11	85359011	85367591	Position, eQTL, Chromatin interaction	Chromatin interaction
+TMEM126B	11	85339629	85347580	Position, eQTL, Chromatin interaction	Chromatin interaction
+TNFRSF21	6	47199268	47277641	Chromatin interaction	Chromatin interaction
+TOMM40	19	45393826	45406946	Position, eQTL	Position, eQTL, Chromatin interaction
+TOMM6	6	41755400	41757636	Position, eQTL, Chromatin interaction	Chromatin interaction
+TRAF3IP3	1	209929377	209955668	eQTL, Chromatin interaction	Chromatin interaction
+TREM1	6	41235664	41254457	Chromatin interaction	Chromatin interaction
+TREM2	6	41126244	41130924	Position, Chromatin interaction	Position, Chromatin interaction
+TREML1	6	41117080	41122075	eQTL, Chromatin interaction	Position, Chromatin interaction
+TRIM35	8	27142404	27168836	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+TSPO2	6	41010293	41012076	Chromatin interaction	Chromatin interaction
+UNC5CL	6	40994772	41006928	eQTL, Chromatin interaction	Chromatin interaction
+YOD1	1	207217194	207226325	Chromatin interaction	Chromatin interaction
+ZNF155	19	44472014	44502477	Chromatin interaction	Position, eQTL, Chromatin interaction
+ZNF221	19	44455375	44471861	Chromatin interaction	Chromatin interaction
+ZNF225	19	44616334	44637027	Chromatin interaction	eQTL, Chromatin interaction
+ZNF408	11	46722368	46727462	Position, eQTL, Chromatin interaction	eQTL, Chromatin interaction
+ZNF428	19	44111371	44124026	Chromatin interaction	Chromatin interaction
