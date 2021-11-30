@@ -1,0 +1,55 @@
+                                        The SAS System          13:56 Tuesday, July 6, 2021   8
+
+                                      The FREQ Procedure
+
+                 study_                               Cumulative    Cumulative
+                 main        Frequency     Percent     Frequency      Percent
+                 ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ
+                 GENDER           496        3.40           496         3.40
+                 OCTOtw           702        4.81          1198         8.22
+                 SATSA            859        5.89          2057        14.11
+                 TwinGene       12523       85.89         14580       100.00
+                                        The SAS System          13:56 Tuesday, July 6, 2021   9
+
+                                      The FREQ Procedure
+
+                                                      Cumulative    Cumulative
+                 dementia    Frequency     Percent     Frequency      Percent
+                 ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ
+                        0       12673       90.31         12673        90.31
+                        1        1360        9.69         14033       100.00
+
+
+                                                   Cumulative    Cumulative
+                    AD    Frequency     Percent     Frequency      Percent
+                    ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ
+                     .         560         .               .          .
+                     0       12673       94.06         12673        94.06
+                     1         800        5.94         13473       100.00
+
+                                    Frequency Missing = 560
+                                        The SAS System          13:56 Tuesday, July 6, 2021  10
+
+                                      The FREQ Procedure
+
+                                                     Cumulative
+                               smoke    Frequency     Frequency
+                               ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ
+                                   .          24             .
+                                   0        5979          5979
+                                   1        7999         13978
+
+                                    Frequency Missing = 24
+                                        The SAS System          13:56 Tuesday, July 6, 2021  11
+
+                                      The FREQ Procedure
+
+                                            zygosity
+
+                                                       Cumulative
+                              zygosity    Frequency     Frequency
+                              ƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒƒ
+                                     1        1659          1659
+                                     2        2196          3855
+                                     3           5          3860
+                                     4        1853          5713
