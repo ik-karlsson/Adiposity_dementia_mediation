@@ -14,6 +14,7 @@ Department of Medical Epidemiology and Biostatistics (MEB), Karolinska Institute
 	Updated: 	20210224 by IK - New data, include PRS for potential mediators
 				20210506 by IK - Drop PRS analyses, add medaition
 				20210707 by IK - Fix error in fasting variable
+				20220303 by IK - Refine outlier removal
 STATA v15.1		
 */
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -31,12 +32,16 @@ rename *, lower
 summarize bmi
 summarize whr
 
-// Setting BMI below 15 or above 55 as missing
+graph box bmi, name(raw_bmi, replace)
+graph box whr, name(raw_whr, replace)
+graph combine raw_bmi raw_whr
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BOX_raw_bmi_whr_mid.tif", replace
+
+// Setting BMI below 15 or above 55 as missing (as default)
 replace bmi=. if bmi < 15
 replace bmi=. if bmi > 55
 // 2 changes
 
-//graph box whr
 list twinnr bmi whr if(whr!=. & whr>1.35)
 // These 3 are outliers, and the BMI does not correspond. Set to missing.
 replace whr=. if whr > 1.35
@@ -44,53 +49,93 @@ replace whr=. if whr > 1.35
 drop if bmi==. & whr==.
 // n=0 
 
+// Plot cleaned BMI and WHR
+graph box bmi, name(clean_bmi, replace)
+graph box whr, name(clean_whr, replace)
+graph combine clean_bmi clean_whr
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BOX_clean_bmi_whr_mid.tif", replace
+
 // drop those with no mediator measures
 drop if crp==. & tc==. & hdl==. & ldl==. & tg==.
 // 18 dropped
 
-/* Look at distribution of mediators 
-graph box crp
-graph box tc 
-graph box hdl
-graph box ldl
-graph box tg
+/* Look at distribution of mediators */
+graph box crp, name(box_raw_crp, replace)
+graph box tc, name(box_raw_tc, replace) 
+graph box hdl, name(box_raw_hdl, replace)
+graph box ldl, name(box_raw_ldl, replace)
+graph box tg, name(box_raw_tg, replace)
 
-histogram crp
-histogram tc
-histogram hdl
-histogram ldl
-histogram tg
+histogram crp, name(hist_raw_crp, replace)
+histogram tc, name(hist_raw_tc, replace)
+histogram hdl, name(hist_raw_hdl, replace)
+histogram ldl, name(hist_raw_ldl, replace)
+histogram tg, name(hist_raw_tg, replace)
+
+graph combine box_raw_crp box_raw_tc box_raw_hdl box_raw_ldl box_raw_tg ///
+			  hist_raw_crp hist_raw_tc hist_raw_hdl hist_raw_ldl hist_raw_tg, rows(2) xsize(20) ysize(10)
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BOX_raw_biomarkers_mid.tif", replace
+
 */
 // TC, HDL, and LDL look ok, but not TG and CRP. 
 list twinnr tc hdl ldl tg fast if(tg>tc & tg!=.)
-// n=24 - will recode all lipids to missing..
+// n=24 - ok
 list twinnr tc hdl ldl tg fast if(hdl>tc & hdl!=.)
 list twinnr tc hdl ldl tg fast if(ldl>tc & ldl!=.)
 // n=0
-gen tc_dup=tc
-replace tc=. if tg>tc_dup & tg!=.
-replace hdl=. if tg>tc_dup & tg!=.
-replace ldl=. if tg>tc_dup & tg!=.
-replace tg=. if tg>tc_dup & tg!=.
-drop tc_dup
 
 sum tc
 sum hdl 
 sum ldl 
 sum tg
-// Took care of a lot of TG outliers!
 
 // Setting CRP >100 to missing, as it indicates bacterial infection
 replace crp=. if crp > 100
-//graph box crp
+//n=4
+graph box crp
 sum crp
 // Gen logged value
 gen crp_l = log(crp)
-//histogram crp_l
+histogram crp_l
+graph box crp_l
+// looks good
 
 // And logged TG
 gen tg_l = log(tg)
-//histogram tg_l
+histogram tg_l
+graph box tg_l
+sum tg_l
+// One questionable, but not a clear outlier so will leave..
+
+// Plot clean values
+graph box crp_l, name(box_clean_crp, replace)
+graph box tc, name(box_clean_tc, replace) 
+graph box hdl, name(box_clean_hdl, replace)
+graph box ldl, name(box_clean_ldl, replace)
+graph box tg_l, name(box_clean_tg, replace)
+
+histogram crp_l, name(hist_clean_crp, replace)
+histogram tc, name(hist_clean_tc, replace)
+histogram hdl, name(hist_clean_hdl, replace)
+histogram ldl, name(hist_clean_ldl, replace)
+histogram tg_l, name(hist_clean_tg, replace)
+
+graph combine box_clean_crp box_clean_tc box_clean_hdl box_clean_ldl box_clean_tg ///
+			  hist_clean_crp hist_clean_tc hist_clean_hdl hist_clean_ldl hist_clean_tg, rows(2) xsize(20) ysize(10)
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BOX_clean_biomarkers_mid.tif", replace
+
+// Boxplot by study 
+graph box bmi, by(study_main) name(bmi_by_s, replace) 
+graph box whr, by(study_main) name(whr_by_s, replace) 
+
+graph box crp_l, by(study_main) name(crp_by_s, replace) 
+graph box tc, by(study_main) name(tc_by_s, replace) 
+graph box hdl, by(study_main) name(hdl_by_s, replace) 
+graph box ldl, by(study_main) name(ldl_by_s, replace) 
+graph box tg_l, by(study_main) name(tg_by_s, replace) 
+
+graph combine bmi_by_s whr_by_s crp_by_s tc_by_s hdl_by_s ldl_by_s tg_by_s , rows(2) xsize(20) ysize(10)
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\Measures_by_study_mid.tif", replace
 
 /// Standardizing variables for analyses
 foreach y of varlist bmi tc hdl ldl crp_l tg_l   {
@@ -137,6 +182,10 @@ stdes
 drop if _st!=1
 // n=0
 
+// Look at the cumulative hazard function
+sts graph, cumhaz 
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\Cumulative_haz_mid.tif", replace
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 									/////  DESCRIPTIVE STATISTICS /////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -147,9 +196,9 @@ replace educ_r=0 if educ==1
 
 cap postclose descriptive
 	postfile descriptive str20 (exp_var all all_ps ctrl ctrl_ps dem_case dem_case_ps dem_p_value) ///
-	using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20210707_mid_descriptive.dta, replace
+	using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20220303_mid_descriptive.dta, replace
 
-	foreach exp_var in sex educ_r smoke {
+	foreach exp_var in sex educ_r smoke vitalstatus {
 			set more off
 			// All
 			estpost tab `exp_var'
@@ -206,25 +255,26 @@ summarize dem_onset
 // K-M curves and log-log plots
 // By BMI
 xtile tert_bmi = bmi, nquantiles(3)
-sts graph, by(tert_bmi)
-stphplot, by(tert_bmi)
+sts graph, by(tert_bmi) name(stsgraph_bmi, replace)
+stphplot, by(tert_bmi) name(phplot_bmi, replace)
 // Bouncy but ok
 // WHR
 xtile tert_whr = whr, nquantiles(3)
-sts graph, by(tert_whr)
-stphplot, by(tert_whr)
+sts graph, by(tert_whr) name(stsgraph_whr, replace)
+stphplot, by(tert_whr) name(phplot_whr, replace)
 // Also bouncy but ok
+graph combine stsgraph_bmi phplot_bmi stsgraph_whr phplot_whr, rows(2) xsize(30) ysize(30)
+graph export "P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\PHassumption_test_mid.tif", replace
 
 // Check with ph-test
-stcox z_bmi z_whr educ smoke i.sex, vce(cluster pairid)
+stcox z_bmi z_whr educ i.sex, vce(cluster pairid)
 estat phtest, detail
 // Looks good
-stcox z_bmi z_whr z_crp_l z_tc z_hdl z_ldl z_tg_l educ smoke i.sex, vce(cluster pairid)
+stcox z_bmi z_whr z_crp_l z_tc z_hdl z_ldl z_tg_l educ i.sex, vce(cluster pairid)
 estat phtest, detail
 // all look good½
 
 // --> Happy with the PH assumption
-
 
 // Base model of BMI and WHR, full sample
 foreach ad_measure in z_bmi z_whr {
@@ -246,11 +296,10 @@ No. of failures      =          110
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
      z_crp_l |      5,396   -.0021856    .9989616  -1.973062    3.80082
-        z_tc |      5,972    .0011623    1.000352  -2.957563   4.996911
-       z_hdl |      5,931   -.0005055    .9988354  -2.434451   5.137273
-       z_ldl |      5,527    .0015814    .9998895  -3.146436   5.318139
-      z_tg_l |      5,972    .0000252    .9999838  -5.515275   3.852978
--------------+---------------------------------------------------------
+        z_tc |      5,996    .0011496    1.000356   -2.94952    4.98959
+       z_hdl |      5,955   -.0005162    .9988476  -2.423786   5.131858
+       z_ldl |      5,529    .0015761    .9998947  -3.141607   5.312673
+      z_tg_l |      5,996    .0000594    1.000042  -5.400263    4.77826
 	  
 No. of subjects      =        5,803             Number of obs    =       5,803
 No. of failures      =           92
@@ -266,11 +315,11 @@ No. of failures      =           92
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
      z_crp_l |      5,311    .0022404     .998102  -1.973062    3.80082
-        z_tc |      5,778   -.0107576    .9903179  -2.957563   4.996911
-       z_hdl |      5,741   -.0011473     .999305  -2.434451   5.137273
-       z_ldl |      5,439    .0035976    .9989248  -3.146436   5.318139
-      z_tg_l |      5,779   -.0026878    1.001183  -5.515275   3.852978
--------------+---------------------------------------------------------
+        z_tc |      5,802   -.0107764    .9904398   -2.94952    4.98959
+       z_hdl |      5,765   -.0013355    .9993793  -2.423786   5.131858
+       z_ldl |      5,441    .0035729    .9989545  -3.141607   5.312673
+      z_tg_l |      5,803   -.0021147    1.001985  -5.400263    4.77826
+
 */
 
 // BMI, adjusted for WHR, and vice versa 
@@ -288,7 +337,7 @@ foreach ad_measure in z_bmi z_whr {
 
 	cap postclose coxreg_dem
 		postfile coxreg_dem str20  (exp_var base_lin base_bmi base_biom adj_bmi adj_biom inter_bmi inter_biom inter_bmixbiom tertbiom_c1 tertbiom_c2 tertbiom_c3 tertdiff_pval) ///
-		using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20210707_mid_Cox_`ad_measure'.dta, replace
+		using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20220303_mid_Cox_`ad_measure'.dta, replace
 	foreach exp_var in z_crp_l z_tc z_hdl z_ldl z_tg_l {
 		set more off
 		
@@ -433,22 +482,22 @@ med4way z_whr z_tc bsex educ study_n fasting, a0(0) a1(1) m(0) yreg(aft, weibull
 /*----------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-      tereri |  -.0173618   .0091572    -1.90   0.058    -.0353095    .0005859
-   ereri_cde |   -.019265   .0094669    -2.03   0.042    -.0378198   -.0007103
-ereri_intref |   .0018632   .0014255     1.31   0.191    -.0009307    .0046571
-ereri_intmed |  -.0000459   .0001546    -0.30   0.767    -.0003489    .0002572
-   ereri_pie |   .0000859    .000287     0.30   0.765    -.0004766    .0006484
+      tereri |  -.0171612    .009138    -1.88   0.060    -.0350713    .0007489
+   ereri_cde |  -.0190807   .0094499    -2.02   0.043    -.0376021   -.0005594
+ereri_intref |   .0018685   .0014293     1.31   0.191     -.000933      .00467
+ereri_intmed |  -.0000576   .0001547    -0.37   0.710    -.0003607    .0002456
+   ereri_pie |   .0001086   .0002874     0.38   0.705    -.0004546    .0006719
 ------------------------------------------------------------------------------*/
 
 med4way z_bmi z_hdl bsex educ study_n fasting, a0(0) a1(1) m(0) yreg(aft, weibull) yregoptions(tratio) mreg(linear) c(0 0 0 0) 
 /*----------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-      tereri |  -.0120775   .0099641    -1.21   0.225    -.0316068    .0074518
-   ereri_cde |  -.0136277   .0092416    -1.47   0.140     -.031741    .0044856
-ereri_intref |  -.0005721   .0019214    -0.30   0.766    -.0043379    .0031936
-ereri_intmed |  -.0005785   .0019363    -0.30   0.765    -.0043737    .0032167
-   ereri_pie |   .0027008   .0023833     1.13   0.257    -.0019705     .007372
+      tereri |  -.0023223   .0090209    -0.26   0.797    -.0200029    .0153583
+   ereri_cde |  -.0111098   .0077828    -1.43   0.153    -.0263638    .0041442
+ereri_intref |   .0021335   .0021851     0.98   0.329    -.0021491    .0064162
+ereri_intmed |   .0021102    .002102     1.00   0.315    -.0020097    .0062302
+   ereri_pie |   .0045438   .0024185     1.88   0.060    -.0001965     .009284
 ------------------------------------------------------------------------------*/
 
 med4way z_whr z_ldl bsex educ study_n fasting, a0(0) a1(1) m(0) yreg(aft, weibull) yregoptions(tratio) mreg(linear) c(0 0 0 0) 
@@ -466,11 +515,11 @@ med4way z_whr z_tg_l bsex educ study_n fasting, a0(0) a1(1) m(0) yreg(aft, weibu
 /*----------------------------------------------------------------------------
              |      Coef.   Std. Err.      z    P>|z|     [95% Conf. Interval]
 -------------+----------------------------------------------------------------
-      tereri |  -.0147951   .0091693    -1.61   0.107    -.0327665    .0031763
-   ereri_cde |   -.014105   .0092524    -1.52   0.127    -.0322394    .0040294
-ereri_intref |   .0005951   .0021873     0.27   0.786     -.003692    .0048822
-ereri_intmed |   .0007453   .0027356     0.27   0.785    -.0046164     .006107
-   ereri_pie |  -.0020305    .003144    -0.65   0.518    -.0081926    .0041316
+      tereri |   -.014605   .0091697    -1.59   0.111    -.0325774    .0033673
+   ereri_cde |  -.0140584   .0092331    -1.52   0.128    -.0321549    .0040382
+ereri_intref |   .0006099   .0021163     0.29   0.773    -.0035379    .0047577
+ereri_intmed |   .0008077   .0027974     0.29   0.773     -.004675    .0062905
+   ereri_pie |  -.0019643   .0032257    -0.61   0.543    -.0082866     .004358
 ------------------------------------------------------------------------------*/
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -479,9 +528,8 @@ ereri_intmed |   .0007453   .0027356     0.27   0.785    -.0046164     .006107
 
 log close
 
-translate session.smcl "P:\Dementia_IK\FORTE_postdoc\Aim_2\Logs\BMI_dem_mediation_20210707_mid.log", replace
+translate session.smcl "P:\Dementia_IK\FORTE_postdoc\Aim_2\Logs\BMI_dem_mediation_20220303_mid.log", replace
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// END OF FILE ///////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
