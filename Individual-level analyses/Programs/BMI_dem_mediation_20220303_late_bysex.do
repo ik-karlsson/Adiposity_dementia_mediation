@@ -14,6 +14,7 @@ Department of Medical Epidemiology and Biostatistics (MEB), Karolinska Institute
 	Updated: 	20210224 by IK - New data, include PRS for potential mediators
 				20210707 by IK - Fix error in fasting variable
 				20210824 by IK - Run sex-stratified analyses
+				20220303 by IK - Refine outlier removal
 				
 STATA v15.1		
 */
@@ -40,17 +41,6 @@ drop if bmi==. & whr==.
 // drop those with no mediator measures
 drop if crp==. & tc==. & hdl==. & ldl==. & tg==.
 
-gen tc_dup=tc
-replace tc=. if tg>tc_dup & tg!=.
-replace hdl=. if tg>tc_dup & tg!=.
-replace ldl=. if tg>tc_dup & tg!=.
-replace tg=. if tg>tc_dup & tg!=.
-drop tc_dup
-
-// One LDL outlier
-replace ldl=. if ldl>=9
-//graph box ldl
-
 // Setting CRP >100 to missing, as it indicates bacterial infection
 replace crp=. if crp > 100
 // Gen logged value
@@ -60,8 +50,6 @@ gen crp_l = log(crp)
 // And logged TG
 gen tg_l = log(tg)
 //histogram tg_l
-// One outlier..
-replace tg_l=. if tg_l<-2
 
 /// Standardizing variables for analyses
 foreach y of varlist bmi tc hdl ldl crp_l tg_l   {
@@ -147,7 +135,7 @@ foreach ad_measure in z_bmi z_whr {
 
 	cap postclose coxreg_dem
 		postfile coxreg_dem str20  (exp_var base_lin base_bmi base_biom adj_bmi adj_biom) ///
-		using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20210824_late_men_`ad_measure'.dta, replace
+		using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20220303_late_men_`ad_measure'.dta, replace
 	foreach exp_var in z_crp_l z_tc z_hdl z_ldl z_tg_l {
 		set more off
 		
@@ -271,7 +259,7 @@ foreach ad_measure in z_bmi z_whr {
 
 	cap postclose coxreg_dem
 		postfile coxreg_dem str20  (exp_var base_lin base_bmi base_biom adj_bmi adj_biom) ///
-		using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20210824_late_women_`ad_measure'.dta, replace
+		using P:\Dementia_IK\FORTE_postdoc\Aim_2\Output\BMI_dem_mediation_20220303_late_women_`ad_measure'.dta, replace
 	foreach exp_var in z_crp_l z_tc z_hdl z_ldl z_tg_l {
 		set more off
 		
@@ -371,7 +359,7 @@ stcox z_whr z_crp_l educ if(sex==2), vce(cluster pairid) strata(study_main)
 
 log close
 
-translate session.smcl "P:\Dementia_IK\FORTE_postdoc\Aim_2\Logs\BMI_dem_mediation_20210824_late_bysex.log", replace
+translate session.smcl "P:\Dementia_IK\FORTE_postdoc\Aim_2\Logs\BMI_dem_mediation_20220303_late_bysex.log", replace
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////// END OF FILE ///////////////////////////////////////////////////
