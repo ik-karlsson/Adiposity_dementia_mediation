@@ -53,6 +53,7 @@ gen crp_l = log(crp)
 
 // And logged TG
 gen tg_l = log(tg)
+replace tg_l=. if tg_l<-2
 
 /// Standardizing variables for analyses
 foreach y of varlist bmi tc hdl ldl crp_l tg_l   {
