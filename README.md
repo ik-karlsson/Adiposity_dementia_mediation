@@ -4,6 +4,7 @@ Adiposity and the risk of dementia: mediating effects from inflammation and lipi
 By: Ida Karlsson, 20211130
 
 This GitHub page provides codes and logs/outputs for the project "Adiposity and the risk of dementia: mediating effects from inflammation and lipid levels"
+
 Publication: Karlsson IK, Zhan Y, Wang Y, Li X, Jylhävä J, Hägg S, Dahl Aslan AD, Gatz M, Pedersen NL, Reynolds CA. Adiposity and the risk of dementia: mediating effects from inflammation and lipid levels. European Journal of Epidemiology 2022. DOI: https://doi.org/10.1007/s10654-022-00918-w
 
 P.I: Ida Karlsson
